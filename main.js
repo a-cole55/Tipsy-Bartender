@@ -2,7 +2,8 @@
 let list = document.getElementById('ingredients');
 let i = 0;
 if (i == 0){
-  document.getElementById('back').style.display = 'none'}
+  document.getElementById('back').style.display = 'none';
+  document.getElementById('drinkList').style.display = 'none'}
 
 document.querySelector('#check').addEventListener('click', getDrink)
 document.querySelector('#forward').addEventListener('click', next)
@@ -23,7 +24,7 @@ function getDrink(){
     .then(data => {
       console.log(data.drinks);
       document.querySelector('h2').innerText = data.drinks[0].strDrink;
-      document.querySelector('img').src = data.drinks[0].strDrinkThumb;
+      document.querySelector('#drinkThumb').src = data.drinks[0].strDrinkThumb;
       document.querySelector('h3').innerText = data.drinks[0].strInstructions;
       document.querySelector('#ingredientsTitle').style.display = 'block';
       document.querySelector('#instructionsTitle').style.display = 'block';
@@ -34,6 +35,8 @@ function getDrink(){
             let listItem = document.createElement('li')
             listItem.innerText = `${data.drinks[0][`strMeasure${x}`]} ${data.drinks[0][`strIngredient${x}`]}`;
             list.appendChild(listItem)
+            document.getElementById('drinkList').style.display = 'contents';
+            // document.querySelector('#main h1').style.display = 'none';
         }
         x++;
       } //buttons//
@@ -42,6 +45,8 @@ function getDrink(){
       } else {
         document.getElementById('forward').style.display = 'block'
       }
+          //clear input
+      document.querySelector('input').value = ""
     })
     .catch(err => {
         console.log(`error ${err}`)
@@ -54,7 +59,7 @@ function getDrink(){
 function next(){
     i++;
     document.querySelector('h2').innerText = '';
-    document.querySelector('img').src = '';
+    document.querySelector('#drinkThumb').src = '';
     document.querySelector('h3').innerText = '';
     list.innerText =''
     let search = document.querySelector('input').value
@@ -63,7 +68,7 @@ function next(){
     .then(data => {
       console.log(data.drinks);
       document.querySelector('h2').innerText = data.drinks[i].strDrink;
-      document.querySelector('img').src = data.drinks[i].strDrinkThumb;
+      document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
       document.querySelector('h3').innerText = data.drinks[0].strInstructions;
       let x = 1;
       while (x <= 15){
@@ -94,7 +99,7 @@ function next(){
 function back(){
     i--;
     document.querySelector('h2').innerText = '';
-    document.querySelector('img').src = '';
+    document.querySelector('#drinkThumb').src = '';
     document.querySelector('h3').innerText = '';
     list.innerText =''
     let search = document.querySelector('input').value
@@ -103,7 +108,7 @@ function back(){
     .then(data => {
       console.log(data.drinks);
       document.querySelector('h2').innerText = data.drinks[i].strDrink;
-      document.querySelector('img').src = data.drinks[i].strDrinkThumb;
+      document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
       document.querySelector('h3').innerText = data.drinks[0].strInstructions;
       let x = 1;
       while (x <= 15){

@@ -32,6 +32,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 /* Make the images invisible by default */
@@ -84,7 +85,7 @@ body{
 }
 
 
-img{
+#drinkThumb{
   width:66%;
 }
 #logo{
@@ -98,8 +99,9 @@ img{
   z-index: 1;
   color:#F04091;
   position:fixed;
-  bottom:2em;
-  width:25%;
+  bottom:45em;
+  left:10em;
+  /* width:25%; */
   height:25em;
 }
 h1{
@@ -111,13 +113,15 @@ h1{
 input{
   background-color: none;
   height:45px;
-  width:240px;
+  width:200px;
   margin-left: 5%;
   border-color:none;
   background-color: rgb(244, 244, 244);
   font-size: 2rem;
   opacity:.9;
   border:none;
+  color:gray;
+  padding-left:4%;
 }
 #check{
   height:45px;
@@ -136,20 +140,155 @@ h6{
   margin-top:8%;
   text-align: center;
   width:90%;
+  background-color: white;
+}
+#drink{
+  /* border:1px solid white;*/
+  height: 550px;
+  width:400px;
+  background-color:white;
+  box-shadow: 2px 2px 2px gray;
+  border-radius: 3em;
+  /* padding:1%; */
+  /* z-index: 1; */
+  color:#F04091;
+  position:absolute;
+  bottom:7em;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size:1rem;
+}
+.drink img{
+  width:60%;
+}
+h3{
+  width:80%;
+  margin:0 0 3% 0;
+  text-align: center;
+  font-size:1.5em;
+}
+h2{
+  font-size:2rem;
+  letter-spacing: 0.03em;
+}
+h4{
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  margin:2% 0;
+}
+ul{
+  width: 90%;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+li{
+  list-style-type: none;
+  padding:0 2% 0 0;
+  text-align: center;
+  font-size: 1.5rem;
+
 }
 /* Faint animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.4s;
+  -webkit-animation-duration: 2s;
   animation-name: fade;
-  animation-duration: 1.4s;
+  animation-duration: 2s;
 }
-@-webkit-keyframes fade {
-  from {opacity: .5}
-  to {opacity: 2}
-}
+  @-webkit-keyframes fade {
+    from {opacity: .5}
+    to {opacity: 2}
+  }
 
-@keyframes fade {
-  from {opacity: .5}
-  to {opacity: 2}
+  @keyframes fade {
+    from {opacity: .5}
+    to {opacity: 2}
+  }
+/* $laptop:1020px;
+$tablet:724px;
+$mobile:480px */
+@media screen and (max-width:724px){
+  #logo{
+    width:760px;
+  }
+  #main{
+    bottom:-1em;
+    left:1em;
+    padding:2%;
+    height:15em;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  #main h1{
+    width:40%;
+    font-size: 3.5rem;
+  }
+  #drink{
+    position:absolute;
+    bottom:12em;
+  }
+  h6{
+    margin:2% 0;
+  }
+}
+@media screen and (max-width:480px){
+  #logo{
+    margin: 0;
+    width:480px;
+    position:relative;
+    top:20em;
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    }
+    #ma
+  }
+  #main{
+    bottom:0em;
+    padding:0;
+    width:100%;
+  }
+  #main h1{
+    font-size: 3rem;
+  }
+  #drink{
+    position:absolute;
+    bottom:12em;
+  }
+  h6{
+    font-size: 1.5rem;
+    position:fixed;
+    bottom:10em;
+    left:3em;
+  }
+/* Place the "forward button" to the right */
+#forward {
+  right: -0.5em;
+  border-radius: 4px 0 0 4px;
+}
+  #back {
+    left: -0.5em;
+    border-radius: 4px 4px 0 0;
+  }
+  input{
+    background-color: none;
+    height:45px;
+    width:150px;
+    margin-left: 0;
+  }
+  #check{
+    height:45px;
+    width:70px;
+  }
 }

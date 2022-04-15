@@ -2,8 +2,9 @@
 <html lang="en">
 	<head>
     	<meta charset="utf-8">
-    	<meta name="description" content="This is where your description goes">
-    	<meta name="keywords" content="one, two, three">
+    	<meta name="description" content="This is web app uses the a drink API to query alcoholic beverage recipes.">
+    	<meta name="keywords" content="drink, alcoholic beverages, recipes, rum, tequilla, drink ideas">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>Drink Recipes</title>
 
@@ -12,6 +13,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+ 
 	</head>
 	<body>
 		<img id="logo" src="TBlogo-small1.png" alt="logo">
@@ -23,15 +25,16 @@
 		</div>
 		<!-- Slideshow container -->
 		<!-- Full images with numbers and message Info -->
-		<div class="carouselContainer">
-		  	<div class="drink1">
-		  		<h2></h2>
-		  		<img src="" alt="">
-				<h4 id="ingredientsTitle" class="hide">Ingredients:</h4>
+		<div id="drinkList" class="fade">
+			<section id="drink" class="fade">
+				<h2></h2>
+				<img id="drinkThumb" src="" alt="picture of drink">
+				<h4 id="ingredientsTitle">Ingredients:</h4>
 				<ul id="ingredients"></ul>
-		  		<h4 id="instructionsTitle" class="hide">Instructions:</h4>
-		  		<h3></h3>
-			</div>
+				<h4 id="instructionsTitle">Instructions:</h4>
+				<h3></h3>
+			</section>
+		</div>
 			<!-- <div class="drink2">
 				<h2>Name</h2>
 				<img src="" alt="">
@@ -51,7 +54,6 @@
 		  
 			<!-- <button type="button" class="forward">&gt;&gt;&gt;</button>
 			<button type="button" class="back">&lt;&lt;&lt;</button> -->
-		</div>
 
 		<button type="button" id="forward" class="hide">&gt;&gt;&gt;</button>
 		<button type="button" id="back">&lt;&lt;&lt;</button>
