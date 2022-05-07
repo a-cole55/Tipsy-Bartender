@@ -61,15 +61,18 @@ function next(){
     document.querySelector('h2').innerText = '';
     document.querySelector('#drinkThumb').src = '';
     document.querySelector('h3').innerText = '';
+    document.querySelector('#drink').style.display = 'none';
     list.innerText =''
     let search = document.querySelector('input').value
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
     .then(res => res.json()) // parse response as JSON
     .then(data => {
       console.log(data.drinks);
-      document.querySelector('h2').innerText = data.drinks[i].strDrink;
-      document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
-      document.querySelector('h3').innerText = data.drinks[0].strInstructions;
+      setTimeout(function(){
+        document.querySelector('h2').innerText = data.drinks[i].strDrink;
+        document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
+        document.querySelector('h3').innerText = data.drinks[0].strInstructions;
+
       let x = 1;
       while (x <= 15){
         if (data.drinks[i][`strIngredient${x}`] != null && data.drinks[i][`strIngredient${x}`] != ""){
@@ -79,6 +82,9 @@ function next(){
         }
         x++;
       }
+      document.querySelector('#drink').style.display = 'flex';
+      document.querySelector('#drink').style.transiton = '500ms'
+      }, 400);
       //buttons//
       if (i == 0){
         document.getElementById('back').style.display = 'none'
@@ -101,15 +107,18 @@ function back(){
     document.querySelector('h2').innerText = '';
     document.querySelector('#drinkThumb').src = '';
     document.querySelector('h3').innerText = '';
+    document.querySelector('#drink').style.display = 'none';
     list.innerText =''
     let search = document.querySelector('input').value
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
     .then(res => res.json()) // parse response as JSON
     .then(data => {
       console.log(data.drinks);
-      document.querySelector('h2').innerText = data.drinks[i].strDrink;
-      document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
-      document.querySelector('h3').innerText = data.drinks[0].strInstructions;
+      setTimeout(function(){
+        document.querySelector('h2').innerText = data.drinks[i].strDrink;
+        document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
+        document.querySelector('h3').innerText = data.drinks[0].strInstructions;
+
       let x = 1;
       while (x <= 15){
         if (data.drinks[i][`strIngredient${x}`] != null && data.drinks[i][`strIngredient${x}`] != ""){
@@ -119,6 +128,9 @@ function back(){
         }
         x++;
       }
+        document.querySelector('#drink').style.display = 'flex';
+        document.querySelector('#drink').style.transiton = '500ms'
+      }, 400);
       //buttons//
       if (i == 0){
         document.getElementById('back').style.display = 'none'

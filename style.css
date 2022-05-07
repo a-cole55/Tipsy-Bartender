@@ -152,8 +152,6 @@ h6{
   background-color:white;
   box-shadow: 1px 1px 1px lightgray;
   border-radius: 3em;
-  /* padding:1%; */
-  /* z-index: 1; */
   color:#F04091;
   position:absolute;
   bottom:7em;
@@ -162,6 +160,8 @@ h6{
   justify-content: center;
   align-items: center;
   font-size:1rem;
+  font-weight: bold;
+  transition: all 500ms;
 }
 .drink img{
   width:60%;
@@ -177,9 +177,10 @@ h2{
   letter-spacing: 0.03em;
 }
 h4{
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   letter-spacing: 0.1em;
-  margin:2% 0;
+  margin:2% 0 1% 0;
+  text-decoration: underline;
 }
 ul{
   width: 90%;
@@ -201,9 +202,9 @@ li{
 /* Faint animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 1s;
   animation-name: fade;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
   @-webkit-keyframes fade {
     from {opacity: .5}
