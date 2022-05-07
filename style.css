@@ -71,12 +71,15 @@ body{
 #forward {
   right: 0;
   border-radius: 4px 0 0 4px;
+  color:#F04091;
+
 }
 
 /*move "back button to left */
 #back {
   left: 0em;
   border-radius: 4px 4px 0 0;
+  color:#F04091;
 }
 
 /*when the user hovers,add a black background with some little opacity */
@@ -101,7 +104,7 @@ body{
   position:fixed;
   bottom:45em;
   left:10em;
-  /* width:25%; */
+  width:400px;
   height:25em;
 }
 h1{
@@ -113,7 +116,7 @@ h1{
 input{
   background-color: none;
   height:45px;
-  width:200px;
+  width:350px;
   margin-left: 5%;
   border-color:none;
   background-color: rgb(244, 244, 244);
@@ -121,11 +124,11 @@ input{
   opacity:.9;
   border:none;
   color:gray;
-  padding-left:4%;
+  padding-left:1%;
 }
 #check{
   height:45px;
-  width:80px;
+  width:120px;
   border-radius: 4px 4px 4px 4px;
   background-color: #F04091;
   color:white;
@@ -147,7 +150,7 @@ h6{
   height: 550px;
   width:400px;
   background-color:white;
-  box-shadow: 2px 2px 2px gray;
+  box-shadow: 1px 1px 1px lightgray;
   border-radius: 3em;
   /* padding:1%; */
   /* z-index: 1; */
@@ -276,6 +279,8 @@ $mobile:480px */
 #forward {
   right: -0.5em;
   border-radius: 4px 0 0 4px;
+  width:80px;
+  font-size:1rem;
 }
   #back {
     left: -0.5em;
