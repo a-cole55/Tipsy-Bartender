@@ -112,8 +112,7 @@ button:hover{
   color:#F04091;
   position:fixed;
   bottom:45em;
-  /* left:10em; */
-  width:100%;
+  width:50%;
   height:25em;
   display: flex;
   flex-direction: row;
@@ -125,7 +124,7 @@ h1{
   /* text-transform: uppercase; */
   font: 4.5rem 'Dancing Script', cursive;
   text-shadow: white 1px 2px;
-  margin-bottom: 2%;
+  margin:0;
 }
 #search{
   display: flex;
@@ -133,6 +132,7 @@ h1{
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin:0;
 }
 input{
   background-color: none;
@@ -159,6 +159,7 @@ input{
   border:#F04091;
   opacity:.9;
   cursor: pointer;
+  margin-right: 5%;
 }
 h6{
   font-size:2rem;
@@ -318,6 +319,7 @@ $mobile:480px */
   #check{
     height:40px;
     width:80px;
+    margin:0;
   }
   #drink{
     /* border:1px solid white;*/
