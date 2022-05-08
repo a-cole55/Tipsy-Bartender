@@ -111,9 +111,9 @@ button:hover{
   z-index: 1;
   color:#F04091;
   position:fixed;
-  bottom:45em;
+  bottom:50em;
   width:50%;
-  height:25em;
+  height:20em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

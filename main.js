@@ -7,6 +7,7 @@ if (i == 0){
   document.getElementById('back').style.display = 'none';
   document.getElementById('drinkList').style.display = 'none'}
 
+
 document.querySelector('#check').addEventListener('click', getDrink)
 document.querySelector('#forward').addEventListener('click', next)
 document.querySelector('#back').addEventListener('click', back)
@@ -14,6 +15,12 @@ document.querySelector('#back').addEventListener('click', back)
 function getDrink(){
     //clear previous error message, if any//
     document.querySelector('h6').innerText = ""
+
+    //clear list inputs for ingredients from previous query
+    if(document.querySelector('li') != null || document.querySelector('li') != undefined){
+      document.querySelector('li').innerText = '';
+    }
+
     let userInput = document.querySelector('input').value;
     //checks if user input has a space//
     if (userInput.includes(' ')){
@@ -34,9 +41,16 @@ function getDrink(){
       let x = 1;
       while (x <= 15){
         if (data.drinks[0][`strIngredient${x}`] != null && data.drinks[0][`strIngredient${x}`] != ""){
-            let listItem = document.createElement('li')
-            listItem.innerText = `${data.drinks[0][`strMeasure${x}`]} ${data.drinks[0][`strIngredient${x}`]}`;
-            list.appendChild(listItem)
+            let listItem = document.createElement('li');
+            if(`${data.drinks[0][`strMeasure${x}`]}` == null){
+              listItem.innerText = `${data.drinks[0][`strIngredient${x}`]}`
+              list.appendChild(listItem)
+            } else{
+              listItem.innerText = `${data.drinks[0][`strMeasure${x}`]} ${data.drinks[0][`strIngredient${x}`]}`;
+              list.appendChild(listItem)
+            }
+            // listItem.innerText = `${data.drinks[0][`strMeasure${x}`]} ${data.drinks[0][`strIngredient${x}`]}`;
+            // list.appendChild(listItem)
             document.getElementById('drinkList').style.display = 'contents';
             // document.querySelector('#main h1').style.display = 'none';
         }
