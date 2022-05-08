@@ -77,17 +77,23 @@ button:hover{
 #forward {
   right: 0;
   border-radius: 4px 0 0 4px;
+  opacity:0.8;
+  background-color:#F04091;
+  color:white;
 }
 
 /*move "back button to left */
 #back {
   left: 0em;
   border-radius: 4px 4px 0 0;
+  background-color:#F04091;
+  opacity:0.8;
+  color:white;
 }
 
 /*when the user hovers,add a black background with some little opacity */
 #back:hover, #forward:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgb(235, 234, 234);
 }
 
 
@@ -107,7 +113,7 @@ button:hover{
   position:fixed;
   bottom:45em;
   /* left:10em; */
-  width:80%;
+  width:100%;
   height:25em;
   display: flex;
   flex-direction: row;
@@ -120,6 +126,13 @@ h1{
   font: 4.5rem 'Dancing Script', cursive;
   text-shadow: white 1px 2px;
   margin-bottom: 2%;
+}
+#search{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* width: 100; */
 }
 input{
   background-color: none;
@@ -275,12 +288,12 @@ $mobile:480px */
   }
   #logo{
     margin: 0;
-    width:480px;
-    position:relative;
-    top:20em;
-    transform: rotate(0deg);
+    width:600px;
+    /* position:relative; */
+    bottom:10em;
+    /* transform: rotate(0deg);
     -ms-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg); */
     }
   #main{
     width:100%;
@@ -292,16 +305,9 @@ $mobile:480px */
 /* Place the "forward button" to the right */
 #forward {
   right: -0.5em;
-  background-color: white;
-  opacity:0.8;
 }
   #back {
     left: -0.5em;
-    background-color: white;
-    opacity:0.8;
-  }
-  #forward:hover, #back:hover {
-    background-color: rgb(235, 234, 234);
   }
   input{
     background-color: none;
