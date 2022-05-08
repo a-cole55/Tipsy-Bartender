@@ -57,29 +57,32 @@ body{
   width: auto;
   margin-top: -23px;
   padding: 17px;
-  color: grey;
+  color: rgb(155, 155, 155);
   font-weight: bold;
-  font-size: 19px;
+  font-size: 2rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   transition: 0.4s ease;
   border-radius: 0 5px 5px 0;
   user-select: none;
   border:none;
+  color:#F04091;
+}
+button:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /* Place the "forward button" to the right */
 #forward {
   right: 0;
   border-radius: 4px 0 0 4px;
-  color:#F04091;
-
 }
 
 /*move "back button to left */
 #back {
   left: 0em;
   border-radius: 4px 4px 0 0;
-  color:#F04091;
 }
 
 /*when the user hovers,add a black background with some little opacity */
@@ -104,8 +107,13 @@ body{
   position:fixed;
   bottom:45em;
   left:10em;
-  width:400px;
+  width:80%;
   height:25em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 h1{
   /* text-transform: uppercase; */
@@ -116,7 +124,7 @@ h1{
 input{
   background-color: none;
   height:45px;
-  width:350px;
+  width:200px;
   margin-left: 5%;
   border-color:none;
   background-color: rgb(244, 244, 244);
@@ -128,7 +136,7 @@ input{
 }
 #check{
   height:45px;
-  width:120px;
+  width:100px;
   border-radius: 4px 4px 4px 4px;
   background-color: #F04091;
   color:white;
@@ -137,6 +145,7 @@ input{
   letter-spacing: 0.1em;
   border:#F04091;
   opacity:.9;
+  cursor: pointer;
 }
 h6{
   font-size:2rem;
@@ -145,9 +154,12 @@ h6{
   width:90%;
   background-color: white;
 }
+#drinkList{
+  margin-top: 3%;
+}
 #drink{
   /* border:1px solid white;*/
-  height: 550px;
+  height: 520px;
   width:400px;
   background-color:white;
   box-shadow: 1px 1px 1px lightgray;
@@ -218,11 +230,21 @@ li{
 /* $laptop:1020px;
 $tablet:724px;
 $mobile:480px */
+@media screen and (max-width:850px){
+  h1{
+    font-size: 4rem;
+  }
+  #check{
+    height:45px;
+    width:100px;
+    font:2rem 'Bebas Neue', cursive;
+  }
+} 
 @media screen and (max-width:724px){
   #logo{
     width:760px;
   }
-  #main{
+  /* #main{
     bottom:-1em;
     left:1em;
     padding:2%;
@@ -233,7 +255,7 @@ $mobile:480px */
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-  }
+  } */
   #main h1{
     width:40%;
     font-size: 3.5rem;
@@ -256,8 +278,6 @@ $mobile:480px */
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     }
-    #ma
-  }
   #main{
     bottom:0em;
     padding:0;
@@ -280,7 +300,7 @@ $mobile:480px */
 #forward {
   right: -0.5em;
   border-radius: 4px 0 0 4px;
-  width:80px;
+  /* width:80px; */
   font-size:1rem;
 }
   #back {

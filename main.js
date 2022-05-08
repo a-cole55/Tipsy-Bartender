@@ -83,7 +83,7 @@ function next(){
         x++;
       }
       document.querySelector('#drink').style.display = 'flex';
-      document.querySelector('#drink').style.transiton = '500ms'
+      document.querySelector('#drink').style.transiton = 'fade 700ms'
       }, 400);
       //buttons//
       if (i == 0){
@@ -129,7 +129,7 @@ function back(){
         x++;
       }
         document.querySelector('#drink').style.display = 'flex';
-        document.querySelector('#drink').style.transiton = '500ms'
+        document.querySelector('#drink').style.transiton = 'fade 700ms'
       }, 400);
       //buttons//
       if (i == 0){
