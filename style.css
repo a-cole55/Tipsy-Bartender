@@ -319,4 +319,10 @@ $mobile:480px */
     height:40px;
     width:80px;
   }
+  #drink{
+    /* border:1px solid white;*/
+    height: 520px;
+    width:380px;
+    bottom:6em;
+  }
 }
