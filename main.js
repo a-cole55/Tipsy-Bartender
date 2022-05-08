@@ -1,6 +1,8 @@
 //The user will enter a cocktail. Get a cocktail name, photo, and instructions and place them in the DOM
 let list = document.getElementById('ingredients');
 let i = 0;
+
+//Hide forward and back buttons by default
 if (i == 0){
   document.getElementById('back').style.display = 'none';
   document.getElementById('drinkList').style.display = 'none'}
@@ -58,6 +60,7 @@ function getDrink(){
 
 function next(){
     i++;
+    //clear inputs from previous query
     document.querySelector('h2').innerText = '';
     document.querySelector('#drinkThumb').src = '';
     document.querySelector('h3').innerText = '';
@@ -72,7 +75,7 @@ function next(){
         document.querySelector('h2').innerText = data.drinks[i].strDrink;
         document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
         document.querySelector('h3').innerText = data.drinks[0].strInstructions;
-
+        //display ingredients list
       let x = 1;
       while (x <= 15){
         if (data.drinks[i][`strIngredient${x}`] != null && data.drinks[i][`strIngredient${x}`] != ""){
@@ -82,6 +85,7 @@ function next(){
         }
         x++;
       }
+      //display drink card
       document.querySelector('#drink').style.display = 'flex';
       document.querySelector('#drink').style.transiton = 'fade 700ms'
       }, 400);
@@ -104,6 +108,7 @@ function next(){
 
 function back(){
     i--;
+    //clear input from previous query
     document.querySelector('h2').innerText = '';
     document.querySelector('#drinkThumb').src = '';
     document.querySelector('h3').innerText = '';
@@ -118,7 +123,7 @@ function back(){
         document.querySelector('h2').innerText = data.drinks[i].strDrink;
         document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
         document.querySelector('h3').innerText = data.drinks[0].strInstructions;
-
+        //get ingredients list
       let x = 1;
       while (x <= 15){
         if (data.drinks[i][`strIngredient${x}`] != null && data.drinks[i][`strIngredient${x}`] != ""){
@@ -128,6 +133,7 @@ function back(){
         }
         x++;
       }
+      //display drink card
         document.querySelector('#drink').style.display = 'flex';
         document.querySelector('#drink').style.transiton = 'fade 700ms'
       }, 400);
