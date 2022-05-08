@@ -106,7 +106,7 @@ button:hover{
   color:#F04091;
   position:fixed;
   bottom:45em;
-  left:10em;
+  /* left:10em; */
   width:80%;
   height:25em;
   display: flex;
@@ -230,43 +230,42 @@ li{
 /* $laptop:1020px;
 $tablet:724px;
 $mobile:480px */
-@media screen and (max-width:850px){
+ @media screen and (max-width:850px){
+  #main{
+    width:100%;
+  }
+}
+@media screen and (max-width:690px){
   h1{
     font-size: 4rem;
   }
   #check{
     height:45px;
-    width:100px;
+    width:80px;
     font:2rem 'Bebas Neue', cursive;
   }
-} 
-@media screen and (max-width:724px){
   #logo{
-    width:760px;
+    margin: 0;
+    width:690px;
+    /* position:relative;
+    top:20em;
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    } */
   }
-  /* #main{
-    bottom:-1em;
-    left:1em;
-    padding:2%;
-    height:15em;
-    width:100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  } */
-  #main h1{
-    width:40%;
-    font-size: 3.5rem;
-  }
-  #drink{
-    position:absolute;
-    bottom:12em;
-  }
-  h6{
-    margin:2% 0;
-  }
+  /* input{
+      height:40px;
+      width:190px;
+      margin-left: 5%;
+      border-color:none;
+      background-color: rgb(244, 244, 244);
+      font-size: 2rem;
+      opacity:.9;
+      border:none;
+      color:gray;
+      padding-left:1%;
+    } */
 }
 @media screen and (max-width:480px){
   #logo{
@@ -286,15 +285,6 @@ $mobile:480px */
   #main h1{
     font-size: 3rem;
   }
-  #drink{
-    position:absolute;
-    bottom:12em;
-  }
-  h6{
-    font-size: 1.5rem;
-    position:fixed;
-    bottom:10em;
-    left:3em;
   }
 /* Place the "forward button" to the right */
 #forward {
