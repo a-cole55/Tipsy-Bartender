@@ -283,9 +283,9 @@ $mobile:480px */
   }
 }
 @media screen and (max-width:480px){
-  body{
+  /* body{
     overflow: scroll;
-  }
+  } */
   #logo{
     margin: 0;
     width:600px;
@@ -297,7 +297,7 @@ $mobile:480px */
     }
   #main{
     width:100%;
-    bottom:50em;
+    bottom:52em;
   }
   #main h1{
     font-size: 3rem;
@@ -311,12 +311,12 @@ $mobile:480px */
   }
   input{
     background-color: none;
-    height:45px;
+    height:40px;
     width:150px;
     margin-left: 0;
   }
   #check{
-    height:45px;
+    height:40px;
     width:70px;
   }
 }
