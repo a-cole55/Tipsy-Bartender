@@ -1,169 +1,111 @@
 //The user will enter a cocktail. Get a cocktail name, photo, and instructions and place them in the DOM
 let list = document.getElementById('ingredients');
 let i = 0;
-
 //Hide forward and back buttons by default
 if (i == 0){
   document.getElementById('back').style.display = 'none';
   document.getElementById('drinkList').style.display = 'none'}
 
+//initial query
+document.querySelector('#check').addEventListener('click', getDrink);
 
-document.querySelector('#check').addEventListener('click', getDrink)
-document.querySelector('#forward').addEventListener('click', next)
-document.querySelector('#back').addEventListener('click', back)
 
 function getDrink(){
-    //clear previous error message, if any//
-    document.querySelector('h6').innerText = ""
-
-    //clear list inputs for ingredients from previous query
-    if(document.querySelector('li') != null || document.querySelector('li') != undefined){
-      document.querySelector('li').innerText = '';
+  let userInput = document.querySelector('input').value;
+  //checks if user input has a space//
+  if (userInput.includes(' ')){
+    search = userInput.replace(/ /g, "%");
+  } else {
+    search = userInput
+  }
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
+  .then(res => res.json()) // parse response as JSON
+  .then(data => {
+    console.log(data.drinks);
+    let drinkData = data.drinks;
+    displayData(drinkData, i)
+  })
+  .catch(err => {
+    console.log(`error ${err}`)
+    if (TypeError){
+      document.querySelector('h6').innerText = "Hmm... It looks like we don't have that drink. Please try again."
     }
+  });
+};
 
-    let userInput = document.querySelector('input').value;
-    //checks if user input has a space//
-    if (userInput.includes(' ')){
-      search = userInput.replace(/ /g, "%");
+//display  output
+function displayData(drinkData, i){
+  clearData();
+  console.log(drinkData)
+  console.log(drinkData[i])
+  let len = drinkData.length;
+  //display data
+  if(i <= len - 1){
+    document.querySelector('#drinkName').innerText = drinkData[i].strDrink;
+    document.querySelector('#drinkThumb').src = drinkData[i].strDrinkThumb;
+    document.querySelector('h3').innerText = drinkData[i].strInstructions;
+    document.querySelector('#ingredientsTitle').style.display = 'block';
+    document.querySelector('#instructionsTitle').style.display = 'block';
+    //ingredients list//
+    let x = 1;
+    while (x <= 15){
+      if (drinkData[i][`strIngredient${x}`] != null && drinkData[i][`strIngredient${x}`] != ""){
+          let listItem = document.createElement('li');
+          if(`${drinkData[i][`strMeasure${x}`]}` == null){
+            listItem.innerText = `${drinkData[i][`strIngredient${x}`]}`
+            list.appendChild(listItem)
+          } else{
+            listItem.innerText = `${drinkData[i][`strMeasure${x}`]} ${drinkData[i][`strIngredient${x}`]}`;
+            list.appendChild(listItem)
+          }
+          document.getElementById('drinkList').style.display = 'contents';
+      }
+      x++;
+    };  
+    document.querySelector('#drink').style.display = 'flex';
+    document.querySelector('#drink').style.transiton = 'fade 400ms'
+
+    //display buttons
+    //forward button
+    if (len <= 1 || i >= len - 2){
+      document.getElementById('forward').style.display = 'none'
     } else {
-      search = userInput
+      document.getElementById('forward').style.display = 'block'
     }
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
-    .then(res => res.json()) // parse response as JSON
-    .then(data => {
-      console.log(data.drinks);
-      document.querySelector('h2').innerText = data.drinks[0].strDrink;
-      document.querySelector('#drinkThumb').src = data.drinks[0].strDrinkThumb;
-      document.querySelector('h3').innerText = data.drinks[0].strInstructions;
-      document.querySelector('#ingredientsTitle').style.display = 'block';
-      document.querySelector('#instructionsTitle').style.display = 'block';
-      //ingredients list//
-      let x = 1;
-      while (x <= 15){
-        if (data.drinks[0][`strIngredient${x}`] != null && data.drinks[0][`strIngredient${x}`] != ""){
-            let listItem = document.createElement('li');
-            if(`${data.drinks[0][`strMeasure${x}`]}` == null){
-              listItem.innerText = `${data.drinks[0][`strIngredient${x}`]}`
-              list.appendChild(listItem)
-            } else{
-              listItem.innerText = `${data.drinks[0][`strMeasure${x}`]} ${data.drinks[0][`strIngredient${x}`]}`;
-              list.appendChild(listItem)
-            }
-            // listItem.innerText = `${data.drinks[0][`strMeasure${x}`]} ${data.drinks[0][`strIngredient${x}`]}`;
-            // list.appendChild(listItem)
-            document.getElementById('drinkList').style.display = 'contents';
-            // document.querySelector('#main h1').style.display = 'none';
-        }
-        x++;
-      } //buttons//
-      if (data.drinks.length <= 1){
-        document.getElementById('forward').style.display = 'none'
-      } else {
-        document.getElementById('forward').style.display = 'block'
-      }
-          //clear input
-      // document.querySelector('input').value = ""
-    })
-    .catch(err => {
-        console.log(`error ${err}`)
-        if (TypeError){
-          document.querySelector('h6').innerText = "Hmm... It looks like we don't have that drink. Please try again."
-        }
-    });
-}
-
-function next(){
+    // back button
+    if (i === 0){
+      document.getElementById('back').style.display = 'none'
+    } else {
+      document.getElementById('back').style.display = 'block'
+    }
+  //next button
+  document.querySelector('#forward').addEventListener('click', function(){
     i++;
-    //clear inputs from previous query
-    document.querySelector('h2').innerText = '';
-    document.querySelector('#drinkThumb').src = '';
-    document.querySelector('h3').innerText = '';
-    document.querySelector('#drink').style.display = 'none';
-    list.innerText =''
-    let search = document.querySelector('input').value
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
-    .then(res => res.json()) // parse response as JSON
-    .then(data => {
-      console.log(data.drinks);
-        document.querySelector('h2').innerText = data.drinks[i].strDrink;
-        document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
-        document.querySelector('h3').innerText = data.drinks[0].strInstructions;
-        //display ingredients list
-      let x = 1;
-      while (x <= 15){
-        if (data.drinks[i][`strIngredient${x}`] != null && data.drinks[i][`strIngredient${x}`] != ""){
-            let listItem = document.createElement('li')
-            listItem.innerText = `${data.drinks[i][`strMeasure${x}`]} ${data.drinks[i][`strIngredient${x}`]}`;
-            list.appendChild(listItem)
-        }
-        x++;
-      }
-      //display drink card
-      setTimeout(function(){
-      document.querySelector('#drink').style.display = 'flex';
-      document.querySelector('#drink').style.transiton = 'fade 1000ms'
-      }, 600);
-      //buttons//
-      if (i == 0){
-        document.getElementById('back').style.display = 'none'
-      } else {
-        document.getElementById('back').style.display = 'block'
-      }
-      if (i == ((data.drinks.length) - 1)){
-        document.getElementById('forward').style.display = 'none'
-      } else {
-        document.getElementById('forward').style.display = 'block'
-      }
-    })
-    .catch(err => {
-        console.log(`error ${err}`)
-    });
-}
-
-function back(){
+    displayData(drinkData, i)
+  });
+  //previous button
+  document.querySelector('#back').addEventListener('click', function(){
     i--;
-    //clear input from previous query
-    document.querySelector('h2').innerText = '';
-    document.querySelector('#drinkThumb').src = '';
-    document.querySelector('h3').innerText = '';
-    document.querySelector('#drink').style.display = 'none';
-    list.innerText =''
-    let search = document.querySelector('input').value
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
-    .then(res => res.json()) // parse response as JSON
-    .then(data => {
-      console.log(data.drinks);
-        document.querySelector('h2').innerText = data.drinks[i].strDrink;
-        document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
-        document.querySelector('h3').innerText = data.drinks[0].strInstructions;
-        //get ingredients list
-      let x = 1;
-      while (x <= 15){
-        if (data.drinks[i][`strIngredient${x}`] != null && data.drinks[i][`strIngredient${x}`] != ""){
-            let listItem = document.createElement('li')
-            listItem.innerText = `${data.drinks[i][`strMeasure${x}`]} ${data.drinks[i][`strIngredient${x}`]}`;
-            list.appendChild(listItem)
-        }
-        x++;
-      }
-      //display drink card
-      setTimeout(function(){
-        document.querySelector('#drink').style.display = 'flex';
-        document.querySelector('#drink').style.transiton = 'fade 700ms'
-      }, 600);
-      //buttons//
-      if (i == 0){
-        document.getElementById('back').style.display = 'none'
-      } else {
-        document.getElementById('back').style.display = 'block'
-      }
-      if (i == ((data.drinks.length) - 1)){
-        document.getElementById('forward').style.display = 'none'
-      } else {
-        document.getElementById('forward').style.display = 'block'
-      }
-    })
-    .catch(err => {
-        console.log(`error ${err}`)
-    });
-}
+    displayData(drinkData, i)
+  });
+}    
+};
+
+function clearData(){
+  console.log('cleared');
+  //clear previous error message, if any//
+  if(document.querySelector('h6').innerText != '' && document.querySelector('h6').innerText != null && document.querySelector('h6').innerText != undefined){
+    document.querySelector('h6').innerText = ''
+  }else{
+  //clear list inputs for ingredients from previous query
+  if(document.querySelector('li') != null || document.querySelector('li') != undefined){
+    document.querySelector('li').innerText = '';
+  }
+  //clear inputs from previous query
+  document.querySelector('h2').innerText = '';
+  document.querySelector('#drinkThumb').src = '';
+  document.querySelector('h3').innerText = '';
+  document.querySelector('#drink').style.display = 'none';
+  list.innerText =''
+  }
+    }

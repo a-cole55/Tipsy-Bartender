@@ -183,7 +183,9 @@ h6{
   background-color: white;
 }
 #drinkList{
-  width: 100%;
+  max-width: 500px;
+  position:relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
