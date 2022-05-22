@@ -62,8 +62,8 @@ function displayData(drinkData, i){
       }
       x++;
     };  
-    document.querySelector('#drink').style.display = 'flex';
     document.querySelector('#drink').style.transiton = 'fade 400ms'
+    document.querySelector('#drink').style.display = 'flex';
 
     //display buttons
     //forward button
@@ -81,11 +81,13 @@ function displayData(drinkData, i){
   //next button
   document.querySelector('#forward').addEventListener('click', function(){
     i++;
+    document.getElementById('drinkList').style.display = 'none';
     displayData(drinkData, i)
   });
   //previous button
   document.querySelector('#back').addEventListener('click', function(){
     i--;
+    document.getElementById('drinkList').style.display = 'none';
     displayData(drinkData, i)
   });
 }    

@@ -123,7 +123,7 @@ button:hover{
 #main{
   color:#F04091;
   position:fixed;
-  bottom:49.5em;
+  bottom:52em;
   width:100%;
   display: flex;
   flex-direction: column;
@@ -132,15 +132,18 @@ button:hover{
   align-items:center;
 }
 h1{
-  font-size: 4rem;
+  font-size: 6rem;
   margin:0;
   display:block;
-  opacity: 0.9;
+  opacity: 0.7;
   background: -webkit-linear-gradient(#F04091, #7F2787);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
+  animation:reveal 4s;
+  font-family: 'Indie Flower', cursive;
+  text-transform: capitalize;
 }
 #search{
   display: flex;
@@ -149,6 +152,11 @@ h1{
   align-items: center;
   width: 100%;
   margin:0;
+  animation:reveal 5s;
+}
+@keyframes reveal{
+  0%{opacity: 0}
+  100%{opacity: 1}
 }
 input{
   background-color: rgba(12, 3, 3, 0.95);
@@ -156,31 +164,37 @@ input{
   width:160px;
   margin-left: 5%;
   border:2px solid #7F2787;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   opacity:.6;
   color:lightgray;
   text-indent: 1em;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: bold;
 }
 #check{
   height:35px;
-  width:70px;
+  width:85px;
   border-radius: 0px 4px 4px 0px;
   background-color: #7F2787;
   color:white;
-  font:1.6rem 'Bebas Neue', cursive;
-  text-transform: uppercase;
+  font:2rem 'Bebas Neue', cursive;
+  /* text-transform: uppercase; */
   letter-spacing: 0.1em;
   border:#F04091;
   opacity:.9;
   cursor: pointer;
   margin-right: 5%;
+  font-family: 'Indie Flower', cursive;
 }
 h6{
   font-size:2rem;
-  margin-top:8%;
+  margin-top:4%;
   text-align: center;
-  width:90%;
-  background-color: white;
+  width:40%;
+  background-color: black;
+  font-family: 'PT Sans Narrow', sans-serif;
+  text-transform: capitalize;
+  color:white;
 }
 #drinkList{
   max-width: 500px;
@@ -207,7 +221,7 @@ h6{
   align-items: center;
   font-size:1rem;
   font-weight: bold;
-  transition: all 1000ms;
+  transition: all 600ms;
   font-family: 'PT Sans Narrow', sans-serif;
 }
 #drink img{
@@ -345,15 +359,6 @@ $mobile:480px */
     height:71em;
     overflow: hidden;
   }
-  #logo{
-    margin: 0;
-    width:600px;
-    /* position:relative; */
-    bottom:10em;
-    /* transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg); */
-    }
   #main{
     width:100%;
     bottom:52em;
