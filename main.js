@@ -62,7 +62,7 @@ function getDrink(){
         document.getElementById('forward').style.display = 'block'
       }
           //clear input
-      document.querySelector('input').value = ""
+      // document.querySelector('input').value = ""
     })
     .catch(err => {
         console.log(`error ${err}`)
@@ -85,7 +85,6 @@ function next(){
     .then(res => res.json()) // parse response as JSON
     .then(data => {
       console.log(data.drinks);
-      setTimeout(function(){
         document.querySelector('h2').innerText = data.drinks[i].strDrink;
         document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
         document.querySelector('h3').innerText = data.drinks[0].strInstructions;
@@ -100,9 +99,10 @@ function next(){
         x++;
       }
       //display drink card
+      setTimeout(function(){
       document.querySelector('#drink').style.display = 'flex';
-      document.querySelector('#drink').style.transiton = 'fade 700ms'
-      }, 400);
+      document.querySelector('#drink').style.transiton = 'fade 1000ms'
+      }, 600);
       //buttons//
       if (i == 0){
         document.getElementById('back').style.display = 'none'
@@ -133,7 +133,6 @@ function back(){
     .then(res => res.json()) // parse response as JSON
     .then(data => {
       console.log(data.drinks);
-      setTimeout(function(){
         document.querySelector('h2').innerText = data.drinks[i].strDrink;
         document.querySelector('#drinkThumb').src = data.drinks[i].strDrinkThumb;
         document.querySelector('h3').innerText = data.drinks[0].strInstructions;
@@ -148,9 +147,10 @@ function back(){
         x++;
       }
       //display drink card
+      setTimeout(function(){
         document.querySelector('#drink').style.display = 'flex';
         document.querySelector('#drink').style.transiton = 'fade 700ms'
-      }, 400);
+      }, 600);
       //buttons//
       if (i == 0){
         document.getElementById('back').style.display = 'none'
