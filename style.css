@@ -358,10 +358,15 @@ $mobile:480px */
   }
 /* Place the "forward button" to the right */
 #forward {
-  right: -0.5em;
+  right: 2.5em;
 }
   #back {
-    left: -0.5em;
+    left: 2.5em;
+  }
+  #forward, #back{
+    border-radius: 25px;
+    font-size: 1.5em;
+    height:3.5em;
   }
   input{
     background-color: none;
