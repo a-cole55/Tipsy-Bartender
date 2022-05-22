@@ -337,9 +337,14 @@ $mobile:480px */
   }
 }
 @media screen and (max-width:480px){
-  /* body{
-    overflow: scroll;
-  } */
+  body{
+    background-size:100% 250%;
+    background-repeat: no-repeat;
+    background-color: rgb(0,0,001);
+    background-position: top 30% center;
+    height:71em;
+    overflow: hidden;
+  }
   #logo{
     margin: 0;
     width:600px;
