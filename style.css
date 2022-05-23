@@ -90,12 +90,12 @@ button:hover{
 
 /* Place the "forward button" to the right */
 #forward {
-  right: 28em;
+  right: 0;
 }
 
 /*move "back button to left */
 #back {
-  left: 28em;
+  left: 0;
 }
 
 /*when the user hovers,add a black background with some little opacity */
