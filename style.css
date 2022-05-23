@@ -71,15 +71,16 @@ nav a{
   width: auto;
   margin-top: -23px;
   padding: 17px;
-  color: rgb(155, 155, 155);
   font-weight: bold;
   font-size: 2rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   transition: 0.4s ease;
-  border-radius: 0 5px 5px 0;
   user-select: none;
   border:none;
-  color:#F04091;
+  border-radius:80px;
+  opacity:0.8;
+  background-color:#7F2787;
+  color:white;
 }
 button:hover{
     -webkit-transform: scale(1.1);
@@ -89,30 +90,17 @@ button:hover{
 
 /* Place the "forward button" to the right */
 #forward {
-  right: 0;
-  border-radius: 4px 0 0 4px;
-  opacity:0.8;
-  background-color:#7F2787;
-  color:white;
+  right: 28em;
 }
 
 /*move "back button to left */
 #back {
-  left: 0em;
-  border-radius: 4px 4px 0 0;
-  background-color:#7F2787;
-  opacity:0.8;
-  color:white;
+  left: 28em;
 }
 
 /*when the user hovers,add a black background with some little opacity */
 #back:hover, #forward:hover {
   opacity: 1;
-}
-
-
-#drinkThumb{
-  width:66%;
 }
 #logo{
   width: 10%;
@@ -208,7 +196,7 @@ h6{
 }
 #drink{
   height: 500px;
-  width:370px;
+  width:350px;
   background-color:rgba(12, 3, 3, 0.9);
   box-shadow: 1px 1px 1px BLACK;
   border-radius: 3em;
@@ -221,11 +209,14 @@ h6{
   align-items: center;
   font-size:1rem;
   font-weight: bold;
-  transition: all 600ms;
+  /* transition: all 600ms; */
   font-family: 'PT Sans Narrow', sans-serif;
+  transform: translateX(0);
+  transition: transform 0.25s;
 }
 #drink img{
-  width:70%;
+  width:66%;
+  border-radius:8px;
 }
 h3{
   width:80%;

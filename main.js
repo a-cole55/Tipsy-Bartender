@@ -58,10 +58,11 @@ function displayData(drinkData, i){
             listItem.innerText = `${drinkData[i][`strMeasure${x}`]} ${drinkData[i][`strIngredient${x}`]}`;
             list.appendChild(listItem)
           }
-          document.getElementById('drinkList').style.display = 'contents';
+          // document.getElementById('drinkList').style.display = 'flex';
       }
       x++;
     };  
+    document.getElementById('drinkList').style.display = 'contents';
     document.querySelector('#drink').style.transiton = 'fade 400ms'
     document.querySelector('#drink').style.display = 'flex';
 
@@ -81,13 +82,13 @@ function displayData(drinkData, i){
   //next button
   document.querySelector('#forward').addEventListener('click', function(){
     i++;
-    document.getElementById('drinkList').style.display = 'none';
+    // document.getElementById('drinkList').style.display = 'none';
     displayData(drinkData, i)
   });
   //previous button
   document.querySelector('#back').addEventListener('click', function(){
     i--;
-    document.getElementById('drinkList').style.display = 'none';
+    // document.getElementById('drinkList').style.display = 'none';
     displayData(drinkData, i)
   });
 }    
